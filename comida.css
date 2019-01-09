@@ -1,0 +1,21 @@
+#camera{
+ background-color: #FFF;
+ height: 100%;
+}
+.amigos{
+    background-color: green;
+}
+.botões {
+    background-color: pink;
+}
+.barra-navegacao{
+    background-color:#d6ffba;
+    height: 40px;
+}
+.barra-navegacao h1{
+    display: inline;
+    margin-left: 72px;
+}
+.barra-amigos {
+    background-color: #fff5d1
+}

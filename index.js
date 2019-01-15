@@ -3,4 +3,71 @@ function alterarDados () {
     document.querySelector(".dados span").innerHTML='Nome do Amigo'
     document.querySelector(".imagem img").src="https://img.itdg.com.br/tdg/images/blog/uploads/2016/12/shutterstock_494252905.jpg"
 }
-document.querySelector("#botao-amigo-1").addEventListener("click",alterarDados)
+// document.querySelector("#botao-amigo-1").addEventListener("click",alterarDados)
+
+function criarPublicacao (post) {
+    var publicacao = document.createElement("div")
+
+    var dadosDoUsuario = document.createElement("div")
+    var iconeDoUsuario = document.createElement("img")
+    var nomeDoUsuario = document.createElement("span")
+    dadosDoUsuario.appendChild(iconeDoUsuario)
+    dadosDoUsuario.appendChild(nomeDoUsuario);
+    iconeDoUsuario.classList.add("rounded")
+    iconeDoUsuario.src=post.usuario.icone
+    nomeDoUsuario.innerHTML = post.usuario.nome
+
+    var areaImagem = document.createElement("div")
+    var imagem = document.createElement("img")
+    areaImagem.appendChild(imagem)
+    areaImagem.classList.add("bg-secondary", "d-flex", "flex-column", "justify-content-center") 
+    areaImagem.style.maxHeight = "390px"
+    areaImagem.style.height = "390px"
+    imagem.classList.add("mn-100", "img-fluid")
+    imagem.src = post.imagem
+
+    var acoes = document.createElement("div")
+    var botaoSalivar = document.createElement("button")
+    var botaoCompartilhar = document.createElement("button")
+    acoes.appendChild(botaoSalivar)
+    acoes.appendChild(botaoCompartilhar)
+    acoes.classList.add("p-2")
+    botaoSalivar.classList.add("btn", "btn-info")
+    botaoCompartilhar.classList.add("btn", "btn-warning")
+    botaoSalivar.innerText = "X"
+    botaoCompartilhar.innerText = "X"  
+
+    publicacao.appendChild(dadosDoUsuario);
+    publicacao.appendChild(areaImagem)
+    publicacao.appendChild(acoes)
+
+    document.querySelector(".publicacoes").appendChild(publicacao)
+}
+
+var posts = [
+    {
+        usuario:{
+            icone: "https://img.itdg.com.br/tdg/images/recipes/000/031/593/85534/85534_original.jpg?mode=crop&scale=both&w=80&h=50",
+            nome: "joãosinho"
+        },
+        imagem: "https://img.itdg.com.br/tdg/images/blog/uploads/2016/12/shutterstock_494252905.jpg"
+    },
+    {
+        usuario:{
+            icone: "https://img.itdg.com.br/tdg/images/recipes/000/031/593/85534/85534_original.jpg?mode=crop&scale=both&w=80&h=50",
+            nome: "joão"
+        },
+        imagem: "https://img.itdg.com.br/tdg/images/blog/uploads/2016/12/shutterstock_494252905.jpg"
+    },
+    {
+        usuario:{
+            icone: "https://img.itdg.com.br/tdg/images/recipes/000/031/593/85534/85534_original.jpg?mode=crop&scale=both&w=80&h=50",
+            nome: "joãosão"
+        },
+        imagem: "https://img.itdg.com.br/tdg/images/blog/uploads/2016/12/shutterstock_494252905.jpg"
+    }
+]
+
+posts.forEach(function (post) {
+    criarPublicacao(post)
+});

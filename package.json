@@ -1,4 +1,5 @@
 {
+    "main": "api/index.js",
     "dependencies": {
         "express": "^4.16.4"
     },

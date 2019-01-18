@@ -1,5 +1,5 @@
 var requestPosts = new XMLHttpRequest();
-requestPosts.open("get","http://localhost:3000/posts");
+requestPosts.open("get","https://comidagram.herokuapp.com/posts");
 requestPosts.addEventListener("load", executarCriacaoDosPosts);
 requestPosts.send();
 function executarCriacaoDosPosts(){

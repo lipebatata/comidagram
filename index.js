@@ -1,8 +1,8 @@
 var requestPosts = new XMLHttpRequest();
-requestPosts.open("get","http://localhost:3000/lipe");
-requestPosts.addEventListener("load", naoSeiQualSeria);
+requestPosts.open("get","http://localhost:3000/posts");
+requestPosts.addEventListener("load", executarCriacaoDosPosts);
 requestPosts.send();
-function naoSeiQualSeria(){
+function executarCriacaoDosPosts(){
     if (requestPosts.status == 200){ 
         var posts = JSON.parse(requestPosts.response);
         posts.forEach(function (post) {
@@ -53,4 +53,32 @@ function alterarDados () {
     document.querySelector(".dados span").innerHTML='Nome do Amigo'
     document.querySelector(".imagem img").src="https://img.itdg.com.br/tdg/images/blog/uploads/2016/12/shutterstock_494252905.jpg"
 }
+function criarAmigo () {
+    var amigo = document.createElement("button")
+    amigo.classList.add("btn", "btn-outline-secondary","rounded-circle","bg-white")
+    amigo.innerHTML = "X"
+
+    document.querySelector(".barra-amigos").appendChild(amigo);    
+}
+var amigos = [
+    {
+        icone: "https://randomuser.me/api/portraits/med/men/39.jpg",
+        nome: "joão do caixão"
+    },
+    {
+        icone: "https://randomuser.me/api/portraits/med/men/42.jpg",
+        nome: "zé da rua de baixo"
+    },
+    {
+        icone: "https://randomuser.me/api/portraits/med/women/19.jpg",
+        nome: "Ansh Vazquez"
+    },
+    {
+        icone: "https://randomuser.me/api/portraits/med/women/19.jpg",
+        nome: "Ansh Vazquez"
+    }
+]
+amigos.forEach (function(amigo){
+    criarAmigo(amigo);
+});
 // document.querySelector("#botao-amigo-1").addEventListener("click",alterarDados)

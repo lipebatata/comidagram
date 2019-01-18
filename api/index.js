@@ -7,7 +7,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-
 app.get('/posts', function (req, res) {
     res.json(
         [
@@ -55,5 +54,6 @@ app.get('/amigos', function (req, res) {
     }
 ])
 })
+
 console.log("servidor iniciado na porta 3000")
 app.listen(3000)
